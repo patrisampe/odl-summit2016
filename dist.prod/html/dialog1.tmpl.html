@@ -1,0 +1,146 @@
+<md-dialog>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+
+
+                <md-button class="md-icon-button" ng-click=" undoVideo()" ng-show="video || video2">
+                    <md-icon md-svg-src="images/iconback.svg" aria-label="undo "></md-icon>
+                </md-button>
+
+
+                <md-button class="md-icon-button" ng-click=" undoVideo2()" ng-show=" video3">
+                    <md-icon md-svg-src="images/iconback.svg" aria-label="undo "></md-icon>
+                </md-button>
+
+
+
+                <img style="max-width: 80%;height: 80%" ng-show="! detail" src="{{actual.imagemodal}}">
+                <img style="max-width: 80%;height: 80%" ng-show=" detail" src="{{myimagemodal}}">
+                <h2 style="font-size: xx-large"ng-show="! detail">{{actual.name}}</h2>
+                <h2 style="font-size: xx-large"ng-show=" detail">{{myname}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="images/iconclose.svg"  aria-label="Close dialog"></md-icon>
+                </md-button>
+
+            </div>
+
+
+        </md-toolbar>
+
+        <md-dialog-content  style="font-size: x-large">
+            <div class="md-dialog-content" >
+
+
+                <div style="display: flex" ng-show="actual.show  && !video " >
+
+                        <div style="display: inline-block; text-align: center" ng-repeat="ac in mymodal">
+
+                            <img style=" max-height:75%; max-width: 75%" src={{ac.image}} ng-click="redirectUrl(ac.ref)">
+
+                                  <p>{{ac.name}}</p>
+
+                        </div>
+
+
+                </div>
+
+                <!--<md-list style=" align-items: center"  ng-show="! actual.show && !detail && !video">-->
+                    <!--<md-list-item  ng-repeat="ac in actual.mymodal">-->
+                        <!--<md-button  style=" max-height:100%; max-width: 100%; text-align: center; font-size: large" ng-click="goToDetail(ac)">-->
+                            <!--<img style=" max-height:50px; max-width: 50px" src={{ac.image}} >-->
+                            <!--{{ac.name}}-->
+                        <!--</md-button>-->
+                    <!--</md-list-item>-->
+                <!--</md-list>-->
+
+
+
+
+                <div style="display: flex" ng-show=" !actual.show && !detail && !video && !video2" >
+
+                    <div style="display: inline-block; text-align: center" ng-repeat="ac in mymodal">
+
+                        <img style=" max-height:75%; max-width: 75%" src={{ac.image}} ng-click="goToVideo2(ac)">
+
+                        <p>{{ac.name}}</p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div  ng-show="video">
+
+
+
+                        <video autoplay controls>
+                            <source src={{actual.video}} type="video/mp4">
+
+                        </video>
+                </div>
+
+
+                <div  ng-show="video2">
+
+
+
+                    <div style="display: flex" >
+
+                        <div style="display: inline-block; text-align: center">
+
+                            <img style=" max-height:75%; max-width: 75%" src='images/dclouddef.png' ng-click="redirectUrl('http://v487user1:fb64d6@64.100.10.36')">
+
+                            <p>Run it!</p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div  ng-show="video3">
+
+
+
+                    <video autoplay controls>
+                        <source src='images/depav2.mp4' type="video/mp4">
+
+                    </video>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <md-button style="font-size: large" ng-show="(actual.show || detail) && !video && !video2" ng-click="goToVideo()">
+                See video
+            </md-button>
+
+            <md-button style="font-size: large" ng-show="video2" ng-click="goToVideo3()">
+                See video
+            </md-button>
+
+            <md-button style="font-size: large" ng-show="! actual.show && !detail && !video " ng-click="answer('useful')">
+                Got it!
+            </md-button>
+        </md-dialog-actions>
+</md-dialog>
+

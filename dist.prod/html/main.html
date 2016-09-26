@@ -1,0 +1,21 @@
+
+<div class="myall">
+
+
+
+    <img class="clus-logo" src="../images/od_summit_logo_white.png">
+    <mycircle class="hoja" ng-click="changeexpanded()"></mycircle>
+
+
+    <div  ng-repeat="x in pentagons">
+
+        <mypentagon style={{x.mytransform}} ng-click="showAdvanced($event,x)" >
+
+            <img src={{x.image}} ng-hide="myexpanded">
+
+
+        </mypentagon>
+    </div>
+
+
+</div>
